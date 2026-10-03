@@ -22,3 +22,22 @@ model.fit(X_train, y_train)
 # 5. Predict and evaluate
 y_pred = model.predict(X_test)
 print(f"Accuracy: {accuracy_score(y_test, y_pred)}")   
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+# Sample data
+train_x = np.array([[1], [2], [3], [4], [5]])
+train_y = np.array([2, 4, 5, 4, 5])
+
+# Train model
+regr = LinearRegression()
+regr.fit(train_x, train_y)
+
+# Predict
+test_x = np.array([[6]])
+predicted = regr.predict(test_x)
+
+# Evaluate
+print(f"R2 Score: {r2_score([5], regr.predict(np.array([[5]])))}")   
